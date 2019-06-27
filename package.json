@@ -50,7 +50,7 @@
   "dependencies": {
     "@types/jest": "^24.0.15",
     "@types/systemjs": "^0.20.6",
-    "joeldenning-root-config": "file:../openmrs-esm-root-config",
+    "joeldenning-root-config": "^1.0.0",
     "single-spa": "^4.3.5",
     "zone.js": "^0.9.1"
   }
