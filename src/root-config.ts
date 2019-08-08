@@ -1,14 +1,22 @@
 import { registerApplication, start } from "single-spa";
-import { registerAllCoreApplications } from "joeldenning-root-config/dist/root-config-lib";
 import * as activityFunctions from "./routes";
 import "./register-shared-deps";
 
-registerAllCoreApplications();
+export const coreApps = {
+  "@ampath/poc": activityFunctions.isPocActive,
+  "@openmrs/devtools": activityFunctions.isDevtoolsActive
+};
 
-registerApplication(
-  "@ampath/poc",
-  () => System.import("@ampath/poc"),
-  activityFunctions.isPocActive
-);
+export function registerAllCoreApplications() {
+  Object.keys(coreApps).forEach(coreAppName => {
+    registerApplication(
+      coreAppName,
+      () => System.import(coreAppName),
+      coreApps[coreAppName]
+    );
+  });
+}
+
+registerAllCoreApplications();
 
 start();

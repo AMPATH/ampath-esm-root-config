@@ -5,3 +5,7 @@ export function isPocActive(location: Location): boolean {
   // are added.
   return true;
 }
+
+export function isDevtoolsActive(location: Location): boolean {
+  return localStorage.getItem("openmrs:devtools") ? true : false;
+}
