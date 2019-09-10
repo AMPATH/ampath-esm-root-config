@@ -1,22 +1,9 @@
-import { registerApplication, start } from "single-spa";
-import * as activityFunctions from "./routes";
+import { start } from "single-spa";
 import "./register-shared-deps";
+import { registerAllCoreApplications } from "@openmrs/esm-root-config";
+import { registerAmpathApplications } from "./ampath-root-config";
 
-export const coreApps = {
-  "@ampath/poc": activityFunctions.isPocActive,
-  "@openmrs/devtools": activityFunctions.isDevtoolsActive
-};
-
-export function registerAllCoreApplications() {
-  Object.keys(coreApps).forEach(coreAppName => {
-    registerApplication(
-      coreAppName,
-      () => System.import(coreAppName),
-      coreApps[coreAppName]
-    );
-  });
-}
-
+registerAmpathApplications();
 registerAllCoreApplications();
 
 start();

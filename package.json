@@ -48,6 +48,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "@openmrs/esm-root-config": "^1.1.0",
     "@types/jest": "^24.0.15",
     "@types/systemjs": "^0.20.6",
     "joeldenning-root-config": "^1.0.0",
