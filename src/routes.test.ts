@@ -4,7 +4,7 @@ describe("routes", () => {
   it(`returns correct values for @ampath/poc routes`, () => {
     expect(
       activityFunctions.ampathApps["@ampath/poc"](mockLocation("#/login"))
-    ).toBe(true);
+    ).toBe(false);
     expect(
       activityFunctions.ampathApps["@ampath/poc"](
         mockLocation("/something-random")

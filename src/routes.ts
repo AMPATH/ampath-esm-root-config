@@ -5,5 +5,5 @@ export const ampathApps = {
 function isPocActive(location: Location): boolean {
   // To start out, POC will always be mounted. This will change as more applications
   // are added.
-  return true;
+  return !location.pathname.includes("login");
 }
