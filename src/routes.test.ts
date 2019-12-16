@@ -19,12 +19,12 @@ describe("routes", () => {
       activityFunctions.ampathApps["@ampath/poc"](
         mockLocation("/something-random")
       )
-    ).toBe(false);
+    ).toBe(true);
     expect(
       activityFunctions.ampathApps["@ampath/poc"](
         mockLocation("/amrs/spa/something-random")
       )
-    ).toBe(false);
+    ).toBe(true);
   });
   it(`returns correct values for @ampath/esm-form-entry routes`, () => {
     expect(
