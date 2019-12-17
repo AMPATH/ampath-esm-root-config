@@ -38,5 +38,5 @@ module.exports = {
     disableHostCheck: true
   },
   plugins: [new CleanWebpackPlugin()],
-  externals: ["single-spa", "i18next", "react-i18next"]
+  externals: ["single-spa", "i18next", "react-i18next", "@openmrs/esm-module-config"]
 };

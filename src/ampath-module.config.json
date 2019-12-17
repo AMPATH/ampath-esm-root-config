@@ -1,0 +1,9 @@
+{
+    "@openmrs/esm-login": {
+        "logo": {
+          "src": "https://ampath-poc.fra1.digitaloceanspaces.com/ampath.png",
+          "alt": "Ampath Logo"
+          
+        }
+      }
+}
