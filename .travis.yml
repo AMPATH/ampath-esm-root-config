@@ -23,3 +23,4 @@ deploy:
     branch: master
 after_deploy:
   - curl -u $DEPLOYER_USERNAME:$DEPLOYER_PASSWORD -d '{ "service":"@openmrs/esm-root-config","url":"https://'$HOSTED_FILE_PREFIX'/root-config/'$TRAVIS_COMMIT'/root-config.js" }' -X PATCH $DEPLOYER_HOST/services\?env=prod -H "Accept:application/json" -H "Content-Type:application/json" --fail
+  - curl -u $DEPLOYER_USERNAME:$DEPLOYER_PASSWORD -d '@openmrs-esm-requirements.json' -X PATCH $DEPLOYER_HOST/import-map.json\?env=prod -H "Accept:application/json" -H "Content-Type:application/json" --fail
