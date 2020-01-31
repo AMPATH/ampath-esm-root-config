@@ -13,14 +13,15 @@ deploy:
   provider: s3
   access_key_id: "$DIGITAL_OCEAN_SPACES_KEY_ID"
   secret_access_key: "$DIGITAL_OCEAN_SPACES_ACCESS_KEY"
-  bucket: "$DIGITAL_OCEAN_SPACES_BUCKET"
+  bucket: "$DIGITAL_OCEAN_SPACES_BUCKET_TEST"
   endpoint: "$DIGITAL_OCEAN_SPACES_ENDPOINT"
   cache-control: "max-age=31536000"
   local_dir: dist
   skip_cleanup: true
   acl: public_read
   on:
-    branch: master
+    branch: envs
 after_deploy:
-  - curl -u $DEPLOYER_USERNAME:$DEPLOYER_PASSWORD -d '{ "service":"@openmrs/esm-root-config","url":"https://'$HOSTED_FILE_PREFIX'/root-config/'$TRAVIS_COMMIT'/root-config.js" }' -X PATCH $DEPLOYER_HOST/services\?env=prod -H "Accept:application/json" -H "Content-Type:application/json" --fail
-  - curl -u $DEPLOYER_USERNAME:$DEPLOYER_PASSWORD -d '@openmrs-esm-requirements.json' -X PATCH $DEPLOYER_HOST/import-map.json\?env=prod -H "Accept:application/json" -H "Content-Type:application/json" --fail
+  - statuscode=$(curl --output /dev/null --write-out %{http_code} -u $DEPLOYER_USERNAME:$DEPLOYER_PASSWORD -d '{ "service":"@openmrs/esm-root-config","url":"https://'$HOSTED_FILE_PREFIX_TEST'/root-config/'$TRAVIS_COMMIT'/root-config.js" }' -X PATCH $DEPLOYER_HOST/services\?env=test -H "Accept:application/json" -H "Content-Type:application/json")
+  - echo "Deployment Status Code --> ${statuscode}"
+  - if [ "$statuscode" -ne 200 ]; then travis_terminate "$statuscode"; fi
