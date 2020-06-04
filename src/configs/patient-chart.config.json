@@ -79,6 +79,24 @@
           }
         ]
       }
-    ]
-  }
+    ],
+    "widgetCommonConfig": {
+      "vitalsConfig": {
+        "vitalsConcepts": {
+          "SYSTOLIC_BLOOD_PRESSURE_CONCEPT": "a8a65d5a-1350-11df-a1f1-0026b9348838",
+          "DIASTOLIC_BLOOD_PRESSURE_CONCEPT": "a8a65e36-1350-11df-a1f1-0026b9348838",
+          "PULSE_CONCEPT": "a8a65f12-1350-11df-a1f1-0026b9348838",
+          "TEMPERATURE_CONCEPT": "a8a65fee-1350-11df-a1f1-0026b9348838",
+          "OXYGENATION_CONCEPT": "a8a66354-1350-11df-a1f1-0026b9348838",
+          "HEIGHT_CONCEPT": "a8a6619c-1350-11df-a1f1-0026b9348838",
+          "WEIGHT_CONCEPT": "a8a660ca-1350-11df-a1f1-0026b9348838"
+        },
+        "triageFormConfig": {
+          "formUuid": "59cbf52d-b214-48c2-b43a-db236b94ec42",
+          "encounterTypeUuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7"
+        }
+      }
+    }
+  },
+  "externalPatientChartConfigs": {}
 }
